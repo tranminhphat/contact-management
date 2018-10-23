@@ -1,0 +1,103 @@
+extends layout
+
+block content
+  h1 Basic Web Starter - NodeJs
+  p The powerful thing about Pug is inline JavaScript code. This is where dynamic data comes from. Binding this dynamic data to HTML can be tricky using custom approach, but with Pug, it’s kind of no brainier.
+  //- Pug.js allow writing inline JavaScript code.
+  //- Unbuffered JavaScript code does not output any results.
+  //- Unbuffered code must start with `-` hyphen.
+  - var fieldName = "username"
+  - var required = false
+  input(type="text", name=fieldName, required=required)
+
+  //- Pug.js also support block Unbuffered code.
+  -
+      // JavaScript comment inside the block
+      var classes = [
+          "general",
+          "link",
+          "active"
+      ];
+  a(href="some-link", class=classes)
+      
+  //- Buffered JavaScript code output results.
+  //- Buffered code starts with `=`
+  p= "Hello World! I am <b>Pug.js!</b>"
+
+  //- Buffered code is escaped by default.
+  //- Like attributes, you can use `!=` syntax to prevent that.
+  p!= "Hello World! I am <b>Pug.js!</b>"
+
+  //- Pug.js provided built in conditional `if-else` syntax.
+  //- Paranthese are optional.
+  - var gender = "MALE"
+  if(gender == "MALE")
+      p I am male.
+  else if gender == "FEMALE"
+      p I am female.
+  else
+      p I am special.
+
+  //- Pug also provides `unless` conditional syntax which works like a negated if.
+  //- This will work only when condition is true.
+  - var loggedin = false
+  unless loggedin
+      p
+          a.link(href="some-link") Some link.
+
+  //- For loops, Pug has for, `for in`, `each in` and `while` loop.
+  //- While, in case of `for` loop, `-` hyphen is necessary.
+  ul
+      - for (var i = 0; i < 3; i++)
+          li= `current value is ${i}`
+  - var i = 0
+  ul
+      while i < 3
+          li= `current value using while is ${i++}`
+
+  - var list = [0,1,2]
+  ul
+      for i in list
+          li= `current value using for-in is ${i}`
+
+  ul
+      each i in list
+          li= `current value using each-in is ${i}`
+
+  //- Pug does not a `switch` statement but support similar `case-when` statement.
+  //- You can also write when expression in single line or block.
+  - var gender = "MALE"
+  case gender
+      when "MALE"
+          p I am male.
+      when "FEMALE": p I am female.
+      default
+          p I am special.
+
+
+  //- Interpolation in Pug is very easy.
+  //- Like ES6 uses `${variable}` syntax, Pug uses `#{variable}` syntax.
+  - var name="John Doe"
+  p Hi, My name is #{name}.
+
+  //- Any code inside curly braces of `#{}` is valid javascript expression
+  - var name="John <b>Doe</b>"
+  p Hi, My name is #{name.toLowerCase()}.
+
+  //- By default, value inside curely brace is escaped.
+  //- To prevent that, use `!` operator.
+  - var name="John <b>Doe</b>"
+  p Hi, My name is !{name.toLowerCase()}.
+  hr
+  .row
+    .col-md-6
+      h2 Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      p
+        a.btn.btn-raised(href='#', role='button') View details »
+    .col-md-6
+      h2 Heading
+      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+      p
+        a.btn.btn-raised(href='#', role='button') View details »
+    
