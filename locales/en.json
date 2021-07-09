@@ -8,5 +8,16 @@
 	"My Account": "My Account",
 	"Logout": "Logout",
 	"Login": "Login",
-	"Create Account": "Create Account"
+	"Create Account": "Create Account",
+	"Profile Information": "Profile Information",
+	"Email": "Email",
+	"Name": "Name",
+	"Contact Form": "Contact Form",
+	"Please describe the issue or your suggestion": "Please describe the issue or your suggestion",
+	"Send": "Send",
+	"Sign up": "Sign up",
+	"Password": "Password",
+	"Confirm Password": "Confirm Password",
+	"Sign in": "Sign in",
+	"Forgot your password?": "Forgot your password?"
 }
