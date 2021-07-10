@@ -19,5 +19,19 @@
 	"Password": "Password",
 	"Confirm Password": "Confirm Password",
 	"Sign in": "Sign in",
-	"Forgot your password?": "Forgot your password?"
+	"Forgot your password?": "Forgot your password?",
+	"Contact List": "Contact List",
+	"Contact list": "Contact list",
+	"First Name": "First Name",
+	"Last Name": "Last Name",
+	"Add": "Add",
+	"Middle Name": "Middle Name",
+	"DOB": "DOB",
+	"Gender": "Gender",
+	"Male": "Male",
+	"Female": "Female",
+	"Start Date": "Start Date",
+	"Direct Manager": "Direct Manager",
+	"val.firstName": "val.firstName",
+	"Date of birth": "Date of birth"
 }

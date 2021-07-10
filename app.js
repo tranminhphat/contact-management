@@ -32,6 +32,7 @@ dotenv.load({ path: '.env.example' });
 const homeController = require('./controllers/home');
 const userController = require('./controllers/user');
 const contactController = require('./controllers/contact');
+const contactListController = require('./controllers/contact-list');
 
 /**
  * API keys and Passport configuration.
@@ -204,7 +205,8 @@ app.post(
   passportConfig.isAuthenticated,
   userController.postDeleteAccount
 );
-
+app.get('/contact-list', contactListController.getContactList);
+app.post('/contact-list', contactListController.addContact);
 /**
  * Error Handler.
  */

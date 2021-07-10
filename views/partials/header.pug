@@ -12,6 +12,8 @@
           a.nav-link(href='/') #{__('Home')}
         li.nav-item(class=(title === 'Contact') ? 'active' : undefined)
           a.nav-link(href='/contact') #{__('Contact')} 
+        li.nav-item(class=(title === 'Contact List') ? 'active' : undefined)
+          a.nav-link(href='/contact-list') #{__('Contact List')} 
       ul.nav.navbar-nav.ml-auto
         if !user
           li.nav-item(class=(title === 'Login') ? 'active' : undefined)

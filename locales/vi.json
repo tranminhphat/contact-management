@@ -29,5 +29,15 @@
 	"Email": "Email",
 	"Contact Form": "Mẫu liên hệ",
 	"Please describe the issue or your suggestion": "Vui lòng mô tả vấn đề hoặc đề xuất của bạn",
-	"Send": "Gửi"
+	"Send": "Gửi",
+	"Contact list": "Danh sách liên hệ",
+	"First Name": "Tên",
+	"Last Name": "Họ",
+	"Add": "Họ",
+	"Middle Name": "Tên lót",
+	"Date of birth": "Ngày sinh",
+	"Start Date": "Ngày bắt đầu",
+	"Direct Manager": "Người quản lý",
+	"Contact List": "Contact List",
+	"Choose direct manager": "Chọn người quản lý" 
 }
