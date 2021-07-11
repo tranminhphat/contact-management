@@ -1,51 +1,58 @@
 extends layout
 
 block content
-  .pb-2.mt-2.mb-4.border-bottom
-    h3 #{__('Contact list')}  
-  form(method='POST', id="addContactForm")
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='firstName') #{__('First Name')}
-      .col-md-7
-        input.form-control(type='text', name='firstName', id='firstName', placeholder=__('First Name'), autofocus, required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='middleName') #{__('Middle Name')}
-      .col-md-7
-        input.form-control(type='text', name='middleName', id='middleName', placeholder=__('Middle Name'), autofocus)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='lastName') #{__('Last Name')}
-      .col-md-7
-        input.form-control(type='text', name='lastName', id='lastName', placeholder=__('Last Name'), required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='dob') #{__('Date of birth')}
-      .col-md-7
-        input.form-control(type='date', name='dob', id='dob', placeholder=__('Date of birth'), required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='gender') #{__('Gender')}
-      .col-md-7
-        .form-check
-          input.form-check-input(type='radio', name='gender', id='male', value='true')
-          label.form-check-label(for='male') #{__('Male')}
-        .form-check
-          input.form-check-input(type='radio', name='gender', id='female', value='false')
-          label.form-check-label(for='female') #{__('Female')}
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='startDate') #{__('Start Date')}
-      .col-md-7
-        input.form-control(type='date', name='startDate', id='startDate', placeholder=__('Start Date'), required)
-    .form-group.row
-      label.col-md-3.col-form-label.font-weight-bold.text-right(for='directManagerId') #{__('Direct Manager')}
-      .col-md-7
-        select.form-control(name='directManagerId', required)
-          option(value='') #{__('Choose direct manager')}
-          each val in contactList
-            option(value=val._id) #{val.firstName} #{val.lastName}
-    .form-group
-      .offset-sm-3.col-md-7.pl-2
-        button.col-md-3.btn.btn-primary(type="submit")
-          i.far.fa-user.fa-sm
-          | #{__('Add')}
-    .form-group
-      .offset-sm-3.col-md-7.pl-2
-        hr
+	.pb-2.mt-2.mb-4.border-bottom
+		h3 #{__('Contact list')}  
+	button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModal')
+			|	#{__('Add contact')} 
+	#exampleModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+		.modal-dialog(role='document')
+			.modal-content
+				form(method='POST', id="addContactForm")
+					.modal-header
+						h5#exampleModalLabel.modal-title #{__('Add contact')}
+						button.close(type='button' data-dismiss='modal' aria-label='Close')
+							span(aria-hidden='true') &times;
+					.modal-body
+							input(type='hidden', name='_csrf', value=_csrf)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='firstName') #{__('First Name')}
+								.col-md-7
+									input.form-control(type='text', name='firstName', id='firstName', placeholder=__('First Name'), autofocus, required)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='middleName') #{__('Middle Name')}
+								.col-md-7
+									input.form-control(type='text', name='middleName', id='middleName', placeholder=__('Middle Name'), autofocus)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='lastName') #{__('Last Name')}
+								.col-md-7
+									input.form-control(type='text', name='lastName', id='lastName', placeholder=__('Last Name'), required)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='dob') #{__('Date of birth')}
+								.col-md-7
+									input.form-control(type='date', name='dob', id='dob', placeholder=__('Date of birth'), required)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='gender') #{__('Gender')}
+								.col-md-7
+									.form-check
+										input.form-check-input(type='radio', name='gender', id='male', value='true')
+										label.form-check-label(for='male') #{__('Male')}
+									.form-check
+										input.form-check-input(type='radio', name='gender', id='female', value='false')
+										label.form-check-label(for='female') #{__('Female')}
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='startDate') #{__('Start Date')}
+								.col-md-7
+									input.form-control(type='date', name='startDate', id='startDate', placeholder=__('Start Date'), required)
+							.form-group.row
+								label.col-md-3.col-form-label.font-weight-bold.text-right(for='directManagerId') #{__('Direct Manager')}
+								.col-md-7
+									select.form-control(name='directManagerId', required)
+										option(value='') #{__('Choose direct manager')}
+										each val in contactList
+											option(value=val._id) #{val.firstName} #{val.lastName}
+					.modal-footer
+						button.btn.btn-secondary(type='button' data-dismiss='modal') Close
+						button.btn.btn-primary(type='submit') 
+							i.far.fa-user.fa-sm
+							| #{__('Add')}
